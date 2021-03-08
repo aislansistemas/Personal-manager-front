@@ -1,0 +1,68 @@
+    <!---Alert feed--->
+    <div class="d-flex justify-content-center" *ngIf="hasError">
+      <div class="alert text-center text-danger w-25" role="alert" style="font-weight: 600; background: white;">
+        {{ alertError }}
+      </div>
+    </div>
+    <!---Alert feed--->
+    
+    <!-- Table -->
+    <div class="row justify-content-center">
+      <div class="col-lg-6 col-md-8">
+        <div class="card bg-secondary shadow border-0">    
+          <div class="card-body px-lg-5 py-lg-5">
+            <div class="text-center text-muted mb-4">
+              <small>Informe seus dados</small>
+            </div>
+            <form #form="ngForm" [formGroup]="registerForm" role="form" (submit)="register()">
+              <div class="form-group">
+                <div class="input-group input-group-alternative mb-3">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text"><i class="ni ni-hat-3"></i></span>
+                  </div>
+                  <input formControlName="name" class="form-control" placeholder="Nome" type="text">
+                </div>
+                <small *ngIf="registerForm.controls.name.errors?.required && (form.submitted || registerForm.controls.name.touched)" class="text-danger small-invalid-input-elements">Nome deve ser preenchido!</small>
+              </div>
+              <div class="form-group">
+                <div class="input-group input-group-alternative mb-3">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text"><i class="ni ni-email-83"></i></span>
+                  </div>
+                  <input formControlName="userName" class="form-control" placeholder="Email" type="email">
+                </div>
+                <small *ngIf="registerForm.controls.userName.errors?.required && (form.submitted || registerForm.controls.userName.touched)" class="text-danger small-invalid-input-elements">Email deve ser preenchido!</small>
+                <small *ngIf="registerForm.controls.userName.errors?.email && (form.submitted || registerForm.controls.userName.touched)" class="text-danger small-invalid-input-elements">Email inválido!</small>
+              </div>
+              <div class="form-group">
+                <div class="input-group input-group-alternative">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text"><i class="ni ni-lock-circle-open"></i></span>
+                  </div>
+                  <input formControlName="passwordHash" class="form-control" placeholder="Senha" type="password">
+                </div>
+                <small *ngIf="registerForm.controls.passwordHash.errors?.required && (form.submitted || registerForm.controls.passwordHash.touched)" class="text-danger small-invalid-input-elements">Senha deve ser preenchida!</small>
+                <small *ngIf="registerForm.controls.passwordHash.errors?.minLength && (form.submitted || registerForm.controls.passwordHash.touched)" class="text-danger small-invalid-input-elements">Senha deve ter no mínimo 20 caracteres!</small>
+              </div>
+              <div class="row my-4">
+                <div class="col-12">
+                  <div class="custom-control custom-control-alternative custom-checkbox">
+                    <input #emailInput class="custom-control-input" id="customCheckRegister" type="checkbox" (change)="enabledButtonSubmit()">
+                    <label class="custom-control-label" for="customCheckRegister">
+                      <small class="text-muted">Eu concordo com a Política de Privacidade</small>
+                    </label>
+                  </div>
+                </div>
+              </div>
+              <div class="text-center">
+                <button [disabled]="isNotAccepted" type="submit" class="btn btn-primary mt-4">
+                  Registrar
+                  <ngx-spinner color="white" size="medium"></ngx-spinner>
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  

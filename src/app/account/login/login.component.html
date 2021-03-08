@@ -1,0 +1,55 @@
+        <!---Alert feed--->
+        <div class="d-flex justify-content-center" *ngIf="hasError">
+            <div class="alert text-center text-danger w-25" role="alert" style="font-weight: 600; background: white;">
+            {{ alertError }}
+            </div>
+        </div>
+        <!---Alert feed--->
+      
+        <!-- Table -->
+        <div class="row justify-content-center">
+        <div class="col-lg-6 col-md-8">
+          <div class="card bg-secondary shadow border-0">    
+            <div class="card-body px-lg-5 py-lg-5">
+              <div class="text-center text-muted mb-4">
+                <small>Informe seus dados</small>
+              </div>
+              <form #formLogin="ngForm" [formGroup]="loginForm" role="form" (submit)="login()">
+                <div class="form-group">
+                  <div class="input-group input-group-alternative mb-3">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text"><i class="ni ni-email-83"></i></span>
+                    </div>
+                    <input formControlName="userName" class="form-control" placeholder="Email" type="email">
+                  </div>
+                  <small *ngIf="loginForm.controls.userName.errors?.required && (formLogin.submitted || loginForm.controls.userName.touched)" class="text-danger small-invalid-input-elements">Email deve ser preenchido!</small>
+                </div>
+                <div class="form-group">
+                  <div class="input-group input-group-alternative">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text"><i class="ni ni-lock-circle-open"></i></span>
+                    </div>
+                    <input formControlName="passwordHash" class="form-control" placeholder="Senha" type="password">
+                  </div>
+                  <small *ngIf="loginForm.controls.passwordHash.errors?.required && (formLogin.submitted || loginForm.controls.passwordHash.touched)" class="text-danger small-invalid-input-elements">Senha deve ser preenchida!</small>
+                </div>
+                <div class="text-center">
+                  <button type="submit" class="btn btn-primary mt-4">
+                    Login
+                    <ngx-spinner color="white" size="medium"></ngx-spinner>
+                  </button>
+                </div>
+              </form>
+            </div>
+          </div>
+          <div class="row mt-3">
+            <!--<div class="col-6">
+              <a href="javascript:void(0)" class="text-light"><small>Forgot password?</small></a>
+            </div>-->
+            <div class="col-12 text-right">
+              <a [routerLink]="['register']" class="text-light"><small>Registre-se</small></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    

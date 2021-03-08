@@ -1,0 +1,53 @@
+<div class="header bg-gradient-danger pb-8 pt-5 pt-md-8">
+    <div class="container-fluid">
+      <div class="header-body">
+      </div>
+    </div>
+  </div>
+  <!-- Page content -->
+  <div class="container-fluid mt--7">
+    <!-- Dark table -->
+    <div class="row mt-5">
+      <div class="col">
+        <div class="card bg-default shadow">
+          <div class="card-header bg-transparent border-0">
+            <h3 class="text-white mb-0">Relatório de Horas</h3>
+          </div>
+          <div class="card-header bg-transparent">
+            <a class="btn btn-success" [routerLink]="['/control-point/create']">Registrar</a>
+            <span class="text-white ml-2">Valor por hora: {{controlPoints[0].hourValue | currency}}</span>
+          </div>
+          <div class="table-responsive">
+            <table class="table align-items-center table-dark table-flush">
+              <thead class="thead-dark">
+                <tr>
+                  <th scope="col">Dia</th>
+                  <th scope="col">Hora de Entrada 1</th>
+                  <th scope="col">Hora de Saida 1</th>
+                  <th scope="col">Hora de Entrada 2</th>
+                  <th scope="col">Hora de Saida 2</th>
+                  <th scope="col">Total de Horas</th>
+                  <th scope="col"></th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let controlPoint of controlPoints">
+                  <td>{{controlPoint.date | date: 'd'}}</td>
+                  <td>{{controlPoint.hourInputOne | date: 'H:mm'}}</td>
+                  <td>{{controlPoint.hourExitOne | date: 'H:mm'}}</td>
+                  <td>{{controlPoint.hourInputTwo | date: 'H:mm'}}</td>
+                  <td>{{controlPoint.hourExitTwo | date: 'H:mm'}}</td>
+                  <td>{{controlPoint.totalHours}}</td>
+                  <td>
+                    <button class="btn btn-warning btn-sm">Editar</button>
+                    <button class="btn btn-danger btn-sm">Deletar</button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  

@@ -31,9 +31,12 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.scss"
+              "src/styles.scss",
+              "src/assets/scss/argon.scss"
             ],
-            "scripts": []
+            "scripts": [
+	                 
+	          ]
           },
           "configurations": {
             "production": {
@@ -127,5 +130,8 @@
       }
     }
   },
-  "defaultProject": "PersonalManager-Front"
+  "defaultProject": "PersonalManager-Front",
+  "cli": {
+    "analytics": "47b62bcf-d083-4a66-aa37-d46de2a79851"
+  }
 }
