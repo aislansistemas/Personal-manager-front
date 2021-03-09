@@ -11,6 +11,7 @@ import { CoreModule } from '../core/core.module';
 import { ControlPointDashboardComponent } from './control-point-dashboard/control-point-dashboard.component';
 import { ControlPointService } from '../Services/control-point.service';
 import { HttpClientModule } from '@angular/common/http';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 
@@ -28,7 +29,9 @@ import { HttpClientModule } from '@angular/common/http';
     NgxSpinnerModule,
     NgbModule,
     ControlPointRoutingModule,
-    CoreModule
+    CoreModule,
+    FormsModule,
+    ReactiveFormsModule,
   ],
   providers: [
     ControlPointService, 

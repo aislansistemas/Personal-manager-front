@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ControlPointService } from 'src/app/Services/control-point.service';
 import { ControlPoint } from '../../Models/ControlPoint';
 import { UserAuthService } from '../../core/user-auth/user-auth-service';
+import { Time } from '@angular/common';
 
 @Component({
   selector: 'app-control-point-list',
@@ -27,6 +28,10 @@ export class ControlPointListComponent implements OnInit {
       err => {
         console.log(err.error);
     });
+  }
+
+  printTimer(time: Time): string {
+    return time.hours + ":" + time.minutes;
   }
 
 }

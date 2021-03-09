@@ -17,19 +17,19 @@
             </div>
           </div>
           <div class="card-body">
-            <form>
+            <form #form="ngForm" [formGroup]="registerForm" role="form" (submit)="registerControlPoint()">
               <div class="pl-lg-4">
                 <div class="row">
                   <div class="col-lg-6">
                     <div class="form-group">
                       <label class="form-control-label" for="input-username">Entrada Um</label>
-                      <input type="time" id="input-username" class="form-control form-control-alternative" placeholder="Username" value="lucky.jesse">
+                      <input formControlName="hourInputOne" type="time" id="input-username" class="form-control form-control-alternative">
                     </div>
                   </div>
                   <div class="col-lg-6">
                     <div class="form-group">
                       <label class="form-control-label" for="input-email">Saida Um</label>
-                      <input type="time" id="input-email" class="form-control form-control-alternative" placeholder="jesse@example.com">
+                      <input formControlName="hourExitOne" type="time" id="input-email" class="form-control form-control-alternative">
                     </div>
                   </div>
                 </div>
@@ -37,19 +37,22 @@
                   <div class="col-lg-6">
                     <div class="form-group">
                       <label class="form-control-label" for="input-first-name">Entrada Dois</label>
-                      <input type="time" id="input-first-name" class="form-control form-control-alternative" placeholder="First name" value="Lucky">
+                      <input formControlName="hourInputTwo" type="time" id="input-first-name" class="form-control form-control-alternative">
                     </div>
                   </div>
                   <div class="col-lg-6">
                     <div class="form-group">
                       <label class="form-control-label" for="input-last-name">Saida Dois</label>
-                      <input type="time" id="input-last-name" class="form-control form-control-alternative" placeholder="Last name" value="Jesse">
+                      <input formControlName="hourExitTwo" type="time" id="input-last-name" class="form-control form-control-alternative">
                     </div>
                   </div>
                 </div>
                 <div class="row">
                     <div class="col-lg-6">
-                        <button class="btn btn-success">Registrar</button>
+                        <button class="btn btn-success">
+                          Registrar
+                          <ngx-spinner color="white" size="medium"></ngx-spinner>
+                        </button>
                     </div>
                 </div>
               </div>

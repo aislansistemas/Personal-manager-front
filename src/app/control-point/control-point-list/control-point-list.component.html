@@ -32,12 +32,12 @@
               </thead>
               <tbody>
                 <tr *ngFor="let controlPoint of controlPoints">
-                  <td>{{controlPoint.date | date: 'd'}}</td>
-                  <td>{{controlPoint.hourInputOne | date: 'H:mm'}}</td>
-                  <td>{{controlPoint.hourExitOne | date: 'H:mm'}}</td>
-                  <td>{{controlPoint.hourInputTwo | date: 'H:mm'}}</td>
-                  <td>{{controlPoint.hourExitTwo | date: 'H:mm'}}</td>
-                  <td>{{controlPoint.totalHours}}</td>
+                  <td>{{ controlPoint.date | date: 'd'}}</td>
+                  <td>{{ printTimer(controlPoint.hourInputOne) }}</td>
+                  <td>{{ printTimer(controlPoint.hourExitOne) }}</td>
+                  <td>{{ printTimer(controlPoint.hourInputTwo) }}</td>
+                  <td>{{ printTimer(controlPoint.hourExitTwo) }}</td>
+                  <td>{{ controlPoint.totalHours }}</td>
                   <td>
                     <button class="btn btn-warning btn-sm">Editar</button>
                     <button class="btn btn-danger btn-sm">Deletar</button>

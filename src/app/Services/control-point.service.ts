@@ -16,6 +16,6 @@ export class ControlPointService {
   }
 
   createControlPoint(controlPoint: ControlPoint) {
-    return this.http.post(API + "controlpoint", controlPoint);
+    return this.http.post<ControlPoint>(API + "ControlPoint/Create", controlPoint);
   }
 }
