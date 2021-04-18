@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
+import { Routes, RouterModule, PreloadAllModules } from '@angular/router';
 import { ControlPointComponent } from './control-point/control.point.component';
 import { AuthGuard } from './core/auth-guard/auth-guard';
 import { UserRoleEnum } from './Enums/user-role-enum';
@@ -12,7 +12,7 @@ const routes: Routes = [
   },
   { 
     path: 'account',
-    loadChildren: './account/account.module#AccountModule'
+    loadChildren: () => import('./account/account.module').then(m => m.AccountModule)
   },
   {
     path: 'control-point',
@@ -25,7 +25,7 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes, {preloadingStrategy: PreloadAllModules})],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
